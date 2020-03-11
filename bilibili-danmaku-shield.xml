@@ -1,4 +1,4 @@
-<!-- B站弹幕屏蔽规则 By:Ailitonia Ver2.3.6_Stable@20181025 -->
+<!-- B站弹幕屏蔽规则 By:Ailitonia Ver2.3.7_Stable@20200311 -->
 <!-- 为了正则的可读性，部分规则不是最简形式。部分规则可能具有年代感…… -->
 <!-- 欢迎提交新条目，以及指出会误伤其他正常弹幕的条目，我会尽力修改 -->
 <!-- 已知问题：1.规则同步到手机端后，任何\，无论其是用来转义还是使用预定义字符集，都会出现\\重复这样的错误 2.手机端似乎不能使用(?!.)或者(?=.)这样的条件，导致该规则不能同步（报错：正则格式不对），但在网页端上是正常的 -->
@@ -74,11 +74,23 @@
 <item enabled="true">r=(沙发|地板|独享|[路飘飞游撸]过|果断(滚|撤退|离开|右上)|(火[前钳])?[刘|留][明|名]|截图|冒泡|存活|空难|坠机|空降|盲降|见.滚|处女币|顶上|[上下]线|小苹果|刷屏|[测试]试|在吗)</item>
 <item enabled="true">r=(我[去擦靠]|祥瑞|羊踹|呵呵|逝者安息|无意冒犯|虽远必诛|大头死变态|永动|壮哉|承包|漩涡|会员|开始游戏|赶脚|路过|完结[散灑撒]花|打[Cc][Aa][Ll]{2}|由我来?([守保]护|捍卫|改[写变])|[锦禁]依卫|御绫军|骑士团|(隔壁|邻居)家?.?小孩)</item>
 <item enabled="true">r=(观光团|确认(存活|存货)|毫无(压力|鸭梨)|法克|我已迷上门口的老头|撸[爆暴]蛋|先.为敬)</item>
+<!-- CP粉、妈宝粉氵衮 -->
+<item enabled="true">r=我家.+最棒</item>
+<item enabled="true">r=(.宝|宝[宝贝])不要?[哭闹]</item>
+<item enabled="true">r=妈妈[怕在爱]</item>
+<item enabled="true">r=不(可以|许|要)对?[凶骂]</item>
+<item enabled="true">r=(你干嘛|干嘛这样)</item>
+<item enabled="true">r=(为什么|干嘛)对.+凶</item>
+<item enabled="true">r=比起.+[帅好萌].?多了</item>
+<item enabled="true">r=[太最](帅|可爱)了</item>
+<item enabled="true">r=我们?家</item>
+<item enabled="true">r=([wW][sS][lL]|我死了)这(就是|是什么)</item>
 <!-- 意义不明 -->
 <item enabled="true">r=^许愿</item>
 <item enabled="true">r=还愿.{0,4}$</item>
 <item enabled="true">r=^[好解]卡$</item>
 <item enabled="true">r=^.?没人.?$</item>
+<item enabled="true">r=就(听|看|循环|重复).+[遍次]</item>
 <item enabled="true">r=([求问].{0,4}([bB][gG][mM]|图包|[音配]乐|歌曲|地址|软件|动漫)|[bB][gG][mM]是什么)</item>
 <item enabled="true">r=(爱的(供[养氧]|自杀)|再问(供[养氧]|自杀))</item>
 <item enabled="true">r=([红橙黄绿蓝靛紫黑白褐灰棕青粉]字)</item>
