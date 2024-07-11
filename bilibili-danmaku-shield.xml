@@ -19,8 +19,9 @@
 <item enabled="true">r=(临夏|伊犁哈萨克|克孜|兴安|凉山|博尔塔拉|和田|喀什|塔城|大兴安岭|大理|巢湖|巴音|延边|张家|德宏|怒江傈|恩施|文山|昌吉|楚雄|济源|海西|湘西|滇西|甘孜|秦皇|红河|虎门|西双版纳|迪庆|锡林郭勒|阿克苏|阿勒泰|阿坝|阿拉善|阿拉尔|黔东|黔南|黔西)</item>
 <!-- 重复数字、长数字、无意义字符、三次以上重复字词、超长弹幕等 -->
 <!-- 将所有\d改成[0-9]以提升规则同步到手机端后的兼容性？ -->
-<item enabled="true">r=^.$</item>
-<item enabled="true">r=^[\!\@\#\$\%\^\*\(\)\_\+\-\=\[\]\{\}\;\:\'\"\,\.]</item>
+<item enabled="true">r=^[^\u4E00-\u9FA5]$</item> <!-- 单个非中文字符 -->
+<item enabled="true">r=^[\.。,，\/\?？!！~～@\^、+=\-_ ]+$</item> <!-- 无意义符号 -->
+<item enabled="true">r=^[\!\@\#\$\%\^\*\(\)\_\+\-\=\[\]\{\}\;\:\'\"\,\.]+$</item> <!-- 无意义符号 -->
 <item enabled="true">r=^(\S+)\1{2,}$</item>
 <item enabled="true">r=^.{50,}$</item>
 <item enabled="true">r=23{6,}</item>
@@ -37,13 +38,35 @@
 <item enabled="true">r=[啊阿啦呀擦额哦啪哈呵啧]{3,}</item>
 <item enabled="true">r=[卐卍]</item>
 <item enabled="true">r=[\(\（]\s?\*?\s?[·・]ω[·・]\s?[\)\）]✄╰ひ╯</item>
-<!-- 刷日期、时间 【这部分最后一条会干掉空降指挥部】依个人口味酌情增减 -->
+<!-- 播放相关 -->
+<item enabled="true">r=弹\s*[屏幕][^护]*$</item> <!-- 弹幕墙、弹幕测试…… 防止误伤弹幕护体 -->
+<item enabled="true">r=[3３三立]\s+[dDＤ体體]</item> <!-- 立  体  弹  幕 -->
+<item enabled="true">r=(^|是)..[红橙黄绿青蓝紫黑白灰].{0,2}$</item> <!-- 颜色 -->
+<item enabled="true">r=^[0-9零一二两三四五六七八九十百千万亿nN]{1,5}(刷|周[木目])$</item>
+<item enabled="true">r=破.*[wW万萬]</item>
+<item enabled="true">r=[wW万萬]助攻</item>
+<item enabled="true">r=钟的?诅咒</item>
+<item enabled="true">r=口[气氣].*[集级]</item>
+<item enabled="true">t=完结</item>
+<item enabled="true">t=撒花</item>
+<item enabled="true">t=从左到右</item>
+<item enabled="true">r=[0-9万名].{1,6}[伴你们人友]($|.*[豪嚎号好])</item> <!-- 12450个小伙伴好 -->
+<!-- 刷日期、时间 -->
 <item enabled="true">r=[0-9]{2,4}[\.\-\/\\年][0-9]{1,2}[\.\-\/\\月][0-9]{1,2}</item>
 <item enabled="true">r=20[0-9]{2}[\.\-\/\\年][0-9]{1,2}</item>
 <item enabled="true">r=(20|19)[0-9]{2} ?(0?[1-9]|1[012]) ?(0?[1-9]|[12][0-9]|3[01])</item>
 <item enabled="true">r=[0-9]{1,2}月[0-9]{1,2}</item>
 <item enabled="true">r=[0-9]{1,2}[：:点时][0-9]{1,2}分?</item>
 <item enabled="true">r=[0-9]{1,2}分[0-9]{1,2}秒</item>
+<!-- 空降 -->
+<item enabled="true">r=降.{0,3}(成功|失败|完美)</item>
+<item enabled="true">t=完美空降</item>
+<item enabled="true">r=空难(现场|$)</item>
+<!-- 漂移 -->
+<item enabled="true">r=[漂飘飄飙][移逸遗]</item>
+<item enabled="true">r=[左右][漂飘飄飙]</item>
+<item enabled="true">r=(\s|^|[我怎来会].?)[漂飘飄飙]+($|.?[～~?？。，啊]|\s)</item>
+<item enabled="true">r=\s{5}</item>
 <!-- 刷等级 -->
 <item enabled="true">r=我?[2345两二三四五]级</item>
 <!-- 刷前排 -->
@@ -57,7 +80,7 @@
 <item enabled="true">r=^(人|观众|小伙伴|这么)(这么)?多(人|观众|小伙伴|队员)?</item>
 <!-- 签到、打卡弹幕 -->
 <item enabled="true">r=(签到|打卡|考古|到此一游|观光团|(来啦){2,}|早啊)</item>
-<item enabled="true">r=(每[天日][1一][看刷]|第.{1,5}遍|^.周目|一[天日]不[看听].*难受|[就才].*(看|听|循环)遍)</item>
+<item enabled="true">r=(每[天日][1一][看刷]|第.{1,5}遍|一[天日]不[看听].*难受|[就才].*(看|听|循环)遍)</item>
 <!-- 跟风、路过弹幕【老司机带带我等均会被杀掉】【完结撒花也会被杀掉】 -->
 <item enabled="true">r=.倍速</item>
 <item enabled="true">r=(自动)?[变换]色</item>
@@ -71,6 +94,10 @@
 <item enabled="true">r=露出(贫穷|富[贵有])的</item>
 <item enabled="true">r=(请求)?出[战站占]</item>
 <item enabled="true">r=^手[持握拿].*观看</item>
+<item enabled="true">r=入(宅|坑$)</item> <!-- xx（作品名）入宅 -->
+<item enabled="true">r=^告诉.*[我还永]</item> <!-- 告诉xx我爱她 -->
+<item enabled="true">r=暴[露漏]((补番)?时间)?[了乐啦拉]</item> <!-- 我也暴露了 -->
+<item enabled="true">r=周目($|.*(我|回|起|报|人|过|来|此))</item> <!-- N周目加我一个 -->
 <item enabled="true">r=(合影|[留劉]念|漂移|空耳|刷一发|进来了|炸出来了|承包|播放量|你们好|前方持续高能|版聊|[进加]入聊天)</item>
 <item enabled="true">r=(沙发|地板|独享|[路飘飞游撸]过|果断(滚|撤退|离开|右上)|(火[前钳])?[刘|留][明|名]|截图|冒泡|存活|空难|坠机|空降|盲降|见.滚|处女币|顶上|[上下]线|小苹果|刷屏|[测试]试|在吗)</item>
 <item enabled="true">r=(我[去擦靠]|祥瑞|羊踹|呵呵|逝者安息|无意冒犯|虽远必诛|大头死变态|永动|壮哉|承包|漩涡|会员|开始游戏|赶脚|路过|完结[散灑撒]花|打[Cc][Aa][Ll]{2}|由我来?([守保]护|捍卫|改[写变])|[锦禁]依卫|御绫军|骑士团|(隔壁|邻居)家?.?小孩)</item>
@@ -117,7 +144,14 @@
 <item enabled="true">r=^.{1,6}你(咋了|怎么了|好惨啊?)</item>
 <item enabled="true">r=^.{1,6}(快|不要)跑啊?</item>
 <item enabled="true">r=我?生日.?$</item>
+<item enabled="true">r=(求|我|祝|保佑).{0,5}[考上]|保佑.{0,5}[我前不挂]|考神</item>
 <!-- 撕逼引战向 -->
+<item enabled="true">r=(请|不[愿想]看)([滚滾]|撤退|离开|右上)|散了吧|洗洗睡|不喜欢(别|不要)</item>
+<item enabled="true">r=.{1,6}王道|^.{1,3}[党黨]|(小说|漫画|原作)党|[甜咸]党</item>
+<item enabled="true">r=独享.{0,}(失败|成功)|能.{0,4}独享|([被由]我|偷偷|悄悄|被)(来){0,}承包|休想|承包.{0,5}</item>
+<item enabled="true">r=脑残|下限|人渣|萌豚|有病|[老劳][资資]|崽子|扇脸|[撕怂]B|丢[你泥尼拟雷累类妮呢伱妮][老楼漏][母某]|扑街|欠(打|日|操|艹|抽|收拾)</item>
+<item enabled="true">r=原作|(AV|Av|av|渣|烂|屎).*画质|(水平|片源|画质|BGM|Bgm|bgm|音乐|歌曲|配乐|CV|Cv|cv|声优)(不[行喜]|垃圾|辣鸡)|辣鸡|垃圾|渣渣|用烂|[比没].{1,}[好差强弱跳翻唱说做调剪编拍写早晚原作做隔国國]|(毛|什么)啊|毁我.*|毁在|磨.{0,1}唧</item>
+<item enabled="true">r=((我){0,}就|我(就){0,}).{0,3}来了|^来了$|见(.){0,}[滚滾进]</item>
 <item enabled="true">r=(优越|圣母|白莲花|玻璃心|呵呵|脑残|卖国|盗版|正版|抄袭|水军|散了吧?|你行你上|为黑而黑|故意黑|乱黑|不吹不黑|黑子|花式洗|洗地|跪舔|(到处|直接)喷)</item>
 <item enabled="true">r=(互喷|喷子|[撕逼][逼Bb]|继续撕|好丑|真的丑|丑出翔|丑死了|确实丑|丑出天际|就是丑|完[爆暴虐草艹]|滚[出粗]|[这那]女的|[男女]权|精英|低龄化|不懂别)</item>
 <item enabled="true">r=(恶心|不要脸|没(听说?|看)过|死(得|的)好|(看|听)不懂|好?(无聊|难看|垃圾(?!桶))|烦不烦|太假了|引战|闭嘴|打脸|[键鍵][盘盤](侠|大手|斗士|黨|党))</item>
@@ -190,7 +224,6 @@
 <item enabled="true">r=(疫情|新.*冠.*病毒|隔离)</item>
 <item enabled="true">r=兄弟[们萌]?</item>
 <item enabled="true">r=(耳机|原地|好评|发麻|妖魔鬼怪|保护|满分)</item>
-<item enabled="true">r=[\.。]{1,}</item>
 <item enabled="true">r=^(你)?看(不)?到.*我</item>
 <item enabled="true">r=(撤硕|厕所|老八|岛市老八|奥利给|干就完|战争后遗症|美汁)</item>
 <item enabled="true">r=(勇的|逊啦|迅啦|杰哥不要啊)</item>
